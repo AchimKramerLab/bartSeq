@@ -14,15 +14,15 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
 
 ## Installing
 1. ### Get repository
->Open Terminal, Command Prompt or PowerShell to clone the repository to your computer. You should run all the codes below by one of those.
+    >Open Terminal, Command Prompt or PowerShell to clone the repository to your computer. You should run all the codes below by one of those.
 
     ```bash
     git clone https://github.com/theislab/bartSeq.git
     ```
 
 2. ### Download fasta databases
->You do not have to download them using "wget". You can basically click on the links below.
->hg38 is the newer version.
+    >You do not have to download them using "wget". You can basically click on the links below.
+    >hg38 is the newer version.
 
     Download the genomes/transcriptomes you need and move them to the `databases` folder.
 
@@ -33,7 +33,7 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/mrna.fa.gz
     ```
 
->You have to install BLAST+ to create the databases.
+    >You have to install BLAST+ to create the databases.
 
     Create BLAST+ databases for all of them you need.
 
@@ -44,7 +44,7 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     makeblastdb -in mrna.fa -dbtype nucl
     ```
 
->You do not need to anything about those below.
+    >You do not need to anything about those below.
 
     Implemented are options to select the following databases with the respective `[filename]`.
 
@@ -54,8 +54,8 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     - GenBank mRNA `[mrna.fa]`
 
 3. ### Build and run the docker container
->You have to install Docker first. 
->Attention! Building the image may take some time (~30 min)
+    >You have to install Docker first. 
+    >Attention! Building the image may take some time (~30 min)
 
     Build the docker image and run it. This will start the web service reachable at http://0.0.0.0:5000.
 
