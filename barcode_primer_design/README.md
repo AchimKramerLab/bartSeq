@@ -10,24 +10,30 @@ Test files can be found under [example-input-data](https://github.com/theislab/b
 ##
 ## Prerequisites
 Bartender software relies on python 3.6+ and depends on the packages in `requirements.txt`.
+>You do not have to install those packages, Docker installs them automatically.
 
 ## Installing
 1. ### Get repository
+>Open Terminal, Command Prompt or PowerShell to clone the repository to your computer. You should run all the codes below by one of those.
 
     ```bash
     git clone https://github.com/theislab/bartSeq.git
     ```
 
 2. ### Download fasta databases
+>You do not have to download them using "wget". You can basically click on the links below.
+>hg38 is the newer version.
 
     Download the genomes/transcriptomes you need and move them to the `databases` folder.
 
     ```bash
     wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/hg38.fa.gz
     wget http://hgdownload.cse.ucsc.edu/goldenPath/hg19/bigZips/hg19.fa.gz
-    wget TODO/refMrna.fa
-    wget TODO/mrna.fa
+    wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/refMrna.fa.gz
+    wget http://hgdownload.cse.ucsc.edu/goldenPath/hg38/bigZips/mrna.fa.gz
     ```
+
+>You have to install BLAST+ to create the databases.
 
     Create BLAST+ databases for all of them you need.
 
@@ -38,6 +44,8 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     makeblastdb -in mrna.fa -dbtype nucl
     ```
 
+>You do not need to anything about those below.
+
     Implemented are options to select the following databases with the respective `[filename]`.
 
     - UCSC Genome hg38 `[hg38.fa]`
@@ -46,6 +54,8 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     - GenBank mRNA `[mrna.fa]`
 
 3. ### Build and run the docker container
+>You have to install Docker first. 
+>Attention! Building the image may take some time (~30 min)
 
     Build the docker image and run it. This will start the web service reachable at http://0.0.0.0:5000.
 
@@ -59,6 +69,8 @@ Bartender software relies on python 3.6+ and depends on the packages in `require
     Find example FASTA file and example of primer plus setting files in `example-input-data`.
 
 ## Development
+>If you get any errors, you can check them by running FLASK_DEBUG.
+
 For development you want to set the environment variable `FLASK_DEBUG` to 1, enabling hot-reloading of your code changes.
 
 ### Running the webservice locally
@@ -91,3 +103,4 @@ In order to get a progress bar working, we need to directly render the template 
 * **Steffen Sass** – *Initial work*
 * **Nikola Müller** – *Initial documentation*
 * **Philipp Angerer** – *Complete overhaul*
+* **Merve Büşra Duman** - *Additional notes for complete beginners*
